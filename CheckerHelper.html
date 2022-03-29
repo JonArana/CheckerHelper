@@ -5,18 +5,19 @@
 </head>
 <body>
     <h1>Weighted Item Calculator</h1>
-    <p>Use this to help with pricing weighted items, or to calculate sale prices and differences.</p>
+    <p>Use this to calculate how much a weighted item is and how much to take off if it's on sale. <br> If you only need the regular price, only do #2 and #4.</p>
 
     <label for="saleprice">1. Enter the CORRECT or desired sale price per/lb: $</label>
-    <input type="text" id="saleprice" name="saleprice" placeholder="e.g. 3.99" min ="0.01" required>
+    <input type="text" id="saleprice" name="saleprice" placeholder="e.g. 3.99" min ="0.0" required>
     <p><label for="weight">2. Enter the TOTAL weight of the item in lbs, either from the label or the scale: </label>
-    <input type="text" id="weight" name="weight" placeholder="e.g. 2.75" min ="0.01" required> lbs</p>
-    <p>If the item already has a higher sale price, and you know the total sale price of the item, do #3<br>OR<br> If it's not on sale, but you know the total regular price, do #3, otherwise, skip to #4</p>
-    <label for="regprice">3. Enter the total sale price OR regular price of the item: $</label>
-    <input type="text" id="totalRegprice" name="totalRegprice" placeholder="e.g. 27.47" min ="0.01">
-    <p>If you enetered a price in #3, then you can go ahead and click the "submit" button now. If not, continue to #4.</p>
+    <input type="text" id="weight" name="weight" placeholder="e.g. 2.75" min ="0.0" required> lbs</p>
+    <p>If the item already has a higher sale price, and you know the total sale price of the item, do #3<br>OR<br> If it's not on sale, but you know the total regular price, do #3, otherwise, SKIP to #4</p>
+    <label for="totalRegprice">3. Enter the total sale price OR the total regular price of the item: $</label>
+    <input type="text" id="totalRegprice" name="totalRegprice" placeholder="e.g. 27.47" min ="0.0">
+    <p>If you enetered a price in #3, then click the "Submit" button now. If not, continue to #4.</p>
     <label for="regprice">4. Enter the regular price per/lb OR the higher sale price per/lb: $</label>
-    <input type="text" id="regprice" name="regprice" placeholder="e.g. 9.99" min ="0.01"><br><br>
+    <input type="text" id="regprice" name="regprice" placeholder="e.g. 9.99" min ="0.0">
+    <p>Only enter a price in #4 if you didn't do #3. Any price typed in #4 will override anything typed in #3.</p>
     <input type="button" id="submit" value="Submit">
 
     <p></p>
@@ -25,38 +26,9 @@
     <p id="totalprice"></p>
     <p id="total"></p>
 
-    <script>
-        let totalSaleprice = 0.0;
-        let difference = 0.0;
-
-        document.getElementById("submit").addEventListener("click", submitData);
-        document.addEventListener("keyup", function(e) {
-            if (e.keyCode === 13){
-                submitData();
-            }
-        });
-
-        function submitData(){
-            let saleprice = Number(document.getElementById("saleprice").value);
-            let weight = Number(document.getElementById("weight").value);
-            let totalRegprice = Number(document.getElementById("totalRegprice").value);
-            if(Number(document.getElementById("regprice").value) > 0){
-                totalRegprice = Number(document.getElementById("regprice").value) * weight;
-                totalRegprice =  Number(totalRegprice.toFixed(2));
-            }
-            calculate(saleprice, weight, totalRegprice);
-        }
-
-        function calculate(saleprice, weight, totalRegprice){
-            totalSaleprice = Number((saleprice * weight).toFixed(2));
-            difference = Number((totalRegprice - totalSaleprice).toFixed(2));
-            document.getElementById("reg").innerHTML = "Regular price is : $" + totalRegprice;
-            document.getElementById("totalprice").innerHTML = "Sale price is : $" + totalSaleprice;
-            document.getElementById("difference").innerHTML = "Difference : -$" + difference;
-            document.getElementById("total").innerHTML = "Store Coupon $" + difference + " from $" + totalRegprice + "<br><br>" +  "To make the price : $" + totalSaleprice;
-        }
-    </script>
-
+    <input type="button" id="reset" value="Reset">
+    
+    <script src="CheckerHelper.js"></script>
 
 
 </body>
