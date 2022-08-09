@@ -5,29 +5,43 @@
 <link rel="stylesheet" href="CheckerHelper.css">
 </head>
 <body>
+    <div class="store-back">
+        <img
+          class="store-bg"
+          src="https://cdn.apartmenttherapy.info/image/upload/v1561242428/stock/shutterstock_373602469.jpg"
+          alt=""
+        >
+        <div class="store-content">
     <h1>Weighted Item Calculator</h1>
-    <p>Use this to calculate how much a weighted item is and how much to take off if it's on sale. <br> If you only need the regular price, only do #2 and #4.</p>
-
-    <label for="saleprice">1. Enter the CORRECT or desired sale price per/lb: $</label>
-    <input type="text" id="saleprice" name="saleprice" placeholder="e.g. 3.99" min ="0.0" required>
-    <p><label for="weight">2. Enter the TOTAL weight of the item in lbs, either from the label or the scale: </label>
-    <input type="text" id="weight" name="weight" placeholder="e.g. 2.75" min ="0.0" required> lbs</p>
-    <p>If the item already has a higher sale price, and you know the total sale price of the item, do #3<br>OR<br> If it's not on sale, but you know the total regular price, do #3, otherwise, SKIP to #4</p>
+    <p>Use this to calculate how much a weighted item is and how much to take off if it's on sale. <br>
+        If you only need the regular price, only do #2 and #4.</p>
+<div class="text-body">
+    <p>
+    <label for="saleprice">1. Enter the CORRECT sale price per/lb: $</label>
+    <input type="text" class="buttons" id="saleprice" name="saleprice" placeholder="  e.g. 3.99" min ="0.0" size="6" required><br><br>
+    <label for="weight">2. Enter the TOTAL weight of the item in lbs: </label>
+    <input type="text" class="buttons" id="weight" name="weight" placeholder="  e.g. 2.75" min ="0.0" size="6" required> lbs<br>
+    <p1>If weight isn't on the label, use the scale</p1><br><br>
+    <p1>If the item already has a higher sale price, and you know the total sale price of the item, do #3<br>OR<br> 
+    If it's not on sale, but you know the total regular price, do #3, otherwise, SKIP to #4</p1><br><br>
     <label for="totalRegprice">3. Enter the total sale price OR the total regular price of the item: $</label>
-    <input type="text" id="totalRegprice" name="totalRegprice" placeholder="e.g. 27.47" min ="0.0">
-    <p>If you enetered a price in #3, then click the "Submit" button now. If not, continue to #4.</p>
+    <input type="text" class="buttons" id="totalRegprice" name="totalRegprice" placeholder=" e.g. 27.47" min ="0.0" size="6"><br>
+    <p1>If you enetered a price in #3, then click the "Submit" button now. If not, continue to #4</p1><br><br>
     <label for="regprice">4. Enter the regular price per/lb OR the higher sale price per/lb: $</label>
-    <input type="text" id="regprice" name="regprice" placeholder="e.g. 9.99" min ="0.0">
-    <p>Only enter a price in #4 if you didn't do #3. Any price typed in #4 will override anything typed in #3.</p>
-    <input type="button" id="submit" value="Submit">
+    <input type="text" class="buttons" id="regprice" name="regprice" placeholder="  e.g. 9.99" min ="0.0" size="6"><br>
+    <p1>Only enter a price in #4 if you didn't do #3. Any price typed in #4 will override anything typed in #3</p1>
+    </p>
+    
+    <input type="button" class="submit" id="submit" value="Submit">
 
     <p></p>
     <p id="reg"></p>
     <p id="difference"></p>
     <p id="totalprice"></p>
-    <p id="total"></p>
+    <p id="total"></p></div>
 
-    <input type="button" id="reset" value="Reset">
+    <input type="button" class="reset" id="reset" value="Reset">
+
     
     <script src="CheckerHelper.js"></script>
 
